@@ -8,3 +8,5 @@
 #' @import dplyr
 #' @import tidyr
 "eurovisionsongcontest"
+
+globalVariables(c("key", "value", "Participant", "Event"))

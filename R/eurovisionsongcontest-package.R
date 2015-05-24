@@ -5,4 +5,4 @@
 #' @import assertthat
 #' @import dplyr
 #' @import tidyr
-NULL
+"eurovisionsongcontest"

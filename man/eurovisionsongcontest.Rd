@@ -5,7 +5,17 @@
 \alias{eurovisionsongcontest}
 \alias{eurovisionsongcontest-package}
 \title{Scoreboards of the Eurovision Song Contest}
+\format{\preformatted{Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	1877 obs. of  4 variables:
+ $ Participant: chr  "Moldova" "Armenia" "Belgium" "The Netherlands" ...
+ $ Event      : chr  "Eurovision Song Contest 2015 First Semi-Final" "Eurovision Song Contest 2015 First Semi-Final" "Eurovision Song Contest 2015 First Semi-Final" "Eurovision Song Contest 2015 First Semi-Final" ...
+ $ key        : chr  "Votes given by: Albania" "Votes given by: Albania" "Votes given by: Albania" "Votes given by: Albania" ...
+ $ value      : num  2 5 6 1 0 12 0 10 0 3 ...
+}}
+\usage{
+eurovisionsongcontest
+}
 \description{
 Scoreboards of the Eurovision Song Contest
 }
+\keyword{datasets}
 

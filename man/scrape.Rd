@@ -4,10 +4,12 @@
 \alias{scrape}
 \title{Scrape an Event}
 \usage{
-scrape(event_url)
+scrape(event_url, sleep = 0)
 }
 \arguments{
 \item{event_url}{The event URL}
+
+\item{sleep}{Amount of seconds to sleep}
 }
 \value{
 A data frame

@@ -1,6 +1,7 @@
 #' Scrape an Event
 #'
 #' @param event_url The event URL
+#' @param sleep Amount of seconds to sleep
 #'
 #' @return A data frame
 #' @export
@@ -9,7 +10,9 @@
 #' \dontrun{
 #' scrape("http://www.eurovision.tv/page/history/by-year/contest?event=2083")
 #' }
-scrape <- function(event_url) {
+scrape <- function(event_url, sleep = 0) {
+  assert_that(is.number(sleep), sleep >= 0)
+  Sys.sleep(sleep)
   assert_that(is.string(event_url))
 
   event_html <- rvest::html(event_url)

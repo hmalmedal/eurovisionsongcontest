@@ -4,12 +4,11 @@ Version: 0.0.0.9000
 Authors@R: person("Håkon", "Malmedal", email = "hmalmedal@gmail.com", role = c("aut", "cre"))
 Description: Scoreboards of the Eurovision Song Contest scraped from the
     official website.
-Depends: R (>= 3.2.0)
+Depends: R (>= 2.10)
 License: GPL (>= 3)
 LazyData: true
 Encoding: UTF-8
-Imports: assertthat,
-    rvest,
+Suggests: rvest,
     dplyr,
     stringr,
     tidyr

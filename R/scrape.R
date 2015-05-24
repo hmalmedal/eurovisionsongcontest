@@ -11,10 +11,9 @@
 #' scrape("http://www.eurovision.tv/page/history/by-year/contest?event=2083")
 #' }
 scrape <- function(event_url, sleep = 0) {
-  assert_that(is.number(sleep), sleep >= 0)
-  Sys.sleep(sleep)
-  assert_that(is.string(event_url))
+  .reqs()
 
+  attachNamespace("dplyr")
   event_html <- rvest::html(event_url)
   event_title <- rvest::html_nodes(event_html, "title") %>%
     rvest::html_text() %>%
@@ -30,7 +29,7 @@ scrape <- function(event_url, sleep = 0) {
   scoreboard$Points <- suppressWarnings(as.integer(scoreboard$Points))
   scoreboard[is.na(scoreboard)] <- 0
   scoreboard %>%
-    tbl_df() %>%
-    mutate(Event = event_title) %>%
-    gather(key, value, -Participant, -Event)
+    dplyr::tbl_df() %>%
+    dplyr::mutate(Event = event_title) %>%
+    tidyr::gather(key, value, -Participant, -Event)
 }

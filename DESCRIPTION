@@ -2,7 +2,8 @@ Package: eurovisionsongcontest
 Title: Scoreboards of the Eurovision Song Contest
 Version: 0.0.0.9000
 Authors@R: person("Håkon", "Malmedal", email = "hmalmedal@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph)
+Description: Scoreboards of the Eurovision Song Contest scraped from the
+    official website.
 Depends: R (>= 3.2.0)
 License: GPL (>= 3)
 LazyData: true

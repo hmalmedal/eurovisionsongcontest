@@ -15,7 +15,7 @@
 eurovisionsongcontest
 }
 \description{
-Scoreboards of the Eurovision Song Contest
+Scoreboards of the Eurovision Song Contest scraped from the official website.
 }
 \keyword{datasets}
 

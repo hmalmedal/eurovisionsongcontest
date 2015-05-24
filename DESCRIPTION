@@ -1,5 +1,5 @@
 Package: eurovisionsongcontest
-Title: What the Package Does (one line, title case)
+Title: Scoreboards of the Eurovision Song Contest
 Version: 0.0.0.9000
 Authors@R: person("Håkon", "Malmedal", email = "hmalmedal@gmail.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph)

@@ -2,4 +2,7 @@
 #'
 #' @name eurovisionsongcontest
 #' @docType package
+#' @import assertthat
+#' @import dplyr
+#' @import tidyr
 NULL

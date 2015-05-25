@@ -1,0 +1,51 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+Scoreboards of the Eurovision Song Contest
+==========================================
+
+Install from GitHub:
+
+```{r, eval=FALSE}
+devtools::install_github("hmalmedal/eurovisionsongcontest")
+```
+
+Which participants have received zero points in the final?
+
+```{r}
+library(eurovisionsongcontest)
+library(dplyr, warn.conflicts = FALSE)
+library(tidyr)
+library(stringr)
+eurovisionsongcontest %>%
+  spread(key, value) %>%
+  select(Participant, Event, Points) %>%
+  filter(Points == 0, !str_detect(Event, "Semi")) %>% 
+  arrange(Event) %>%
+  print(n = Inf)
+```
+
+How often does Greece receive 12 points from Cyprus in the final?
+
+```{r}
+eurovisionsongcontest %>%
+  spread(key, value) %>%
+  select(Participant, Event, Cyprus = ends_with("Cyprus")) %>%
+  filter(Participant == "Greece", !str_detect(Event, "Semi"),
+         Cyprus == 12) %>%
+  arrange(Event) %>%
+  print(n = Inf)
+```

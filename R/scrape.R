@@ -10,6 +10,7 @@
 #' \dontrun{
 #' scrape("http://www.eurovision.tv/page/history/by-year/contest?event=2083")
 #' }
+#' @keywords internal
 scrape <- function(event_url, sleep = 0) {
   .reqs()
 

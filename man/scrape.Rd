@@ -22,4 +22,5 @@ Scrape an Event
 scrape("http://www.eurovision.tv/page/history/by-year/contest?event=2083")
 }
 }
+\keyword{internal}
 

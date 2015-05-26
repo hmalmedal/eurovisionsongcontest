@@ -12,7 +12,7 @@ Which participants have received zero points in the final?
 
 ``` r
 library(eurovisionsongcontest)
-library(dplyr, warn.conflicts = FALSE)
+library(dplyr)
 library(tidyr)
 library(stringr)
 eurovisionsongcontest %>%

@@ -4,9 +4,10 @@
 #'
 #' @name eurovisionsongcontest
 #' @docType package
+#' @importFrom magrittr %>%
 "eurovisionsongcontest"
 
-globalVariables(c("key", "value", "Participant", "Event", "%>%"))
+globalVariables(c("key", "value", "Participant", "Event"))
 
 .req <- function(pkg) {
   if (!requireNamespace(pkg, quietly = TRUE)) {

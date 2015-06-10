@@ -14,7 +14,6 @@
 scrape <- function(event_url, sleep = 0) {
   .reqs()
 
-  attachNamespace("dplyr")
   event_html <- rvest::html(event_url)
   event_title <- rvest::html_nodes(event_html, "title") %>%
     rvest::html_text() %>%

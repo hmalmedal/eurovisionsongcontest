@@ -12,6 +12,7 @@
 #' }
 #' @keywords internal
 scrape <- function(event_url, sleep = 0) {
+  Sys.sleep(sleep)
   .reqs()
 
   event_html <- rvest::html(event_url)

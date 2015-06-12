@@ -19,6 +19,10 @@ scrape <- function(event_url, sleep = 0) {
   event_title <- rvest::html_node(event_html, "title") %>%
     rvest::html_text() %>%
     stringr::str_extract("^.+?(?= \\|)")
+  event_date <- rvest::html_node(event_html, ".info:nth-child(2)") %>%
+    rvest::html_text() %>%
+    lubridate::dmy(locale = "C") %>%
+    as.Date()
   scoreboard_node <- rvest::html_nodes(event_html, "table") %>%
     getElement(2)
   scoreboard_header <- rvest::html_nodes(scoreboard_node, "th") %>%
@@ -31,6 +35,6 @@ scrape <- function(event_url, sleep = 0) {
   scoreboard[is.na(scoreboard)] <- 0
   scoreboard %>%
     dplyr::tbl_df() %>%
-    dplyr::mutate(Event = event_title) %>%
-    tidyr::gather(key, value, -Participant, -Event)
+    dplyr::mutate(Event = event_title, Date = event_date) %>%
+    tidyr::gather(key, value, -Participant, -Event, -Date)
 }

@@ -12,4 +12,5 @@ Imports: magrittr
 Suggests: rvest,
     dplyr,
     stringr,
-    tidyr
+    tidyr,
+    lubridate

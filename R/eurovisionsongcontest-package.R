@@ -7,7 +7,7 @@
 #' @importFrom magrittr %>%
 "eurovisionsongcontest"
 
-globalVariables(c("key", "value", "Participant", "Event"))
+globalVariables(c("key", "value", "Participant", "Event", "Date"))
 
 .req <- function(pkg) {
   if (!requireNamespace(pkg, quietly = TRUE)) {
@@ -20,4 +20,5 @@ globalVariables(c("key", "value", "Participant", "Event"))
   .req("dplyr")
   .req("stringr")
   .req("tidyr")
+  .req("lubridate")
 }

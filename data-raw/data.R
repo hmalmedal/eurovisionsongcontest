@@ -41,7 +41,7 @@ events <- c(
   2063,
   2083)
 urls <- str_c(base_url, events)
-scraped_events <- lapply(urls, scrape, sleep = 1)
+scraped_events <- lapply(urls, scrape, sleep = 10)
 eurovisionsongcontest <- bind_rows(scraped_events) %>%
   filter(!str_detect(Event, "1956") | key != "Points") %>%
   distinct() %>%

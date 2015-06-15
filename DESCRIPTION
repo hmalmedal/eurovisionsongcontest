@@ -8,9 +8,3 @@ Depends: R (>= 2.10)
 License: GPL (>= 3)
 LazyData: true
 Encoding: UTF-8
-Imports: magrittr
-Suggests: rvest,
-    dplyr,
-    stringr,
-    tidyr,
-    lubridate

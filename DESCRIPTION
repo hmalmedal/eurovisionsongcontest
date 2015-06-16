@@ -1,6 +1,6 @@
 Package: eurovisionsongcontest
 Title: Scoreboards of the Eurovision Song Contest
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: person("Håkon", "Malmedal", email = "hmalmedal@gmail.com", role = c("aut", "cre"))
 Description: Scoreboards of the Eurovision Song Contest scraped from the
     official website.

@@ -35,7 +35,7 @@ eurovisionsongcontest %>%
   select(Participant, Event, Points) %>%
   filter(Points == 0, !str_detect(Event, "Semi")) %>% 
   arrange(Event) %>%
-  print(n = Inf)
+  knitr::kable()
 ```
 
 How often does Greece receive 12 points from Cyprus in the final?
@@ -47,5 +47,5 @@ eurovisionsongcontest %>%
   filter(Participant == "Greece", !str_detect(Event, "Semi"),
          Cyprus == 12) %>%
   arrange(Event) %>%
-  print(n = Inf)
+  knitr::kable()
 ```

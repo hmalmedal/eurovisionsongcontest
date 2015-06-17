@@ -18,7 +18,7 @@ library(stringr)
 eurovisionsongcontest %>%
   spread(key, value) %>%
   select(Participant, Event, Points) %>%
-  filter(Points == 0, !str_detect(Event, "Semi")) %>% 
+  filter(Points == 0, !str_detect(Event, "Semi")) %>%
   arrange(Event) %>%
   knitr::kable()
 ```

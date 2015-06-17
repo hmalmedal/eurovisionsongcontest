@@ -8,59 +8,45 @@ Install from GitHub:
 devtools::install_github("hmalmedal/eurovisionsongcontest")
 ```
 
-Which participants have received zero points in the final?
+Which participants have received zero points in the final the most times?
 
 ``` r
 library(eurovisionsongcontest)
 library(dplyr)
 library(tidyr)
 library(stringr)
+library(lubridate)
 eurovisionsongcontest %>%
   spread(key, value) %>%
-  select(Participant, Event, Points) %>%
+  select(Participant, Event, Date, Points) %>%
+  mutate(Year = year(Date)) %>%
   filter(Points == 0, !str_detect(Event, "Semi")) %>%
-  arrange(Event) %>%
+  group_by(Participant) %>%
+  summarise(n = n(), `Year(s)` = list(Year)) %>%
+  arrange(desc(n)) %>%
   knitr::kable()
 ```
 
-| Participant     | Event                                    |  Points|
-|:----------------|:-----------------------------------------|-------:|
-| Austria         | Eurovision Song Contest 1962             |       0|
-| Belgium         | Eurovision Song Contest 1962             |       0|
-| Spain           | Eurovision Song Contest 1962             |       0|
-| The Netherlands | Eurovision Song Contest 1962             |       0|
-| Finland         | Eurovision Song Contest 1963             |       0|
-| Norway          | Eurovision Song Contest 1963             |       0|
-| Sweden          | Eurovision Song Contest 1963             |       0|
-| The Netherlands | Eurovision Song Contest 1963             |       0|
-| Germany         | Eurovision Song Contest 1964             |       0|
-| Portugal        | Eurovision Song Contest 1964             |       0|
-| Switzerland     | Eurovision Song Contest 1964             |       0|
-| Yugoslavia      | Eurovision Song Contest 1964             |       0|
-| Belgium         | Eurovision Song Contest 1965             |       0|
-| Finland         | Eurovision Song Contest 1965             |       0|
-| Germany         | Eurovision Song Contest 1965             |       0|
-| Spain           | Eurovision Song Contest 1965             |       0|
-| Italy           | Eurovision Song Contest 1966             |       0|
-| Monaco          | Eurovision Song Contest 1966             |       0|
-| Switzerland     | Eurovision Song Contest 1967             |       0|
-| Luxembourg      | Eurovision Song Contest 1970             |       0|
-| Norway          | Eurovision Song Contest 1978             |       0|
-| Norway          | Eurovision Song Contest 1981             |       0|
-| Finland         | Eurovision Song Contest 1982             |       0|
-| Spain           | Eurovision Song Contest 1983             |       0|
-| Turkey          | Eurovision Song Contest 1983             |       0|
-| Turkey          | Eurovision Song Contest 1987             |       0|
-| Austria         | Eurovision Song Contest 1988             |       0|
-| Iceland         | Eurovision Song Contest 1989             |       0|
-| Austria         | Eurovision Song Contest 1991             |       0|
-| Lithuania       | Eurovision Song Contest 1994             |       0|
-| Norway          | Eurovision Song Contest 1997             |       0|
-| Portugal        | Eurovision Song Contest 1997             |       0|
-| Switzerland     | Eurovision Song Contest 1998             |       0|
-| United Kingdom  | Eurovision Song Contest 2003             |       0|
-| Austria         | Eurovision Song Contest 2015 Grand Final |       0|
-| Germany         | Eurovision Song Contest 2015 Grand Final |       0|
+| Participant     |    n| Year(s)                |
+|:----------------|----:|:-----------------------|
+| Austria         |    4| 1962, 1988, 1991, 2015 |
+| Norway          |    4| 1963, 1978, 1981, 1997 |
+| Finland         |    3| 1963, 1965, 1982       |
+| Germany         |    3| 1964, 1965, 2015       |
+| Spain           |    3| 1962, 1965, 1983       |
+| Switzerland     |    3| 1964, 1967, 1998       |
+| Belgium         |    2| 1962, 1965             |
+| Portugal        |    2| 1964, 1997             |
+| The Netherlands |    2| 1962, 1963             |
+| Turkey          |    2| 1983, 1987             |
+| Iceland         |    1| 1989                   |
+| Italy           |    1| 1966                   |
+| Lithuania       |    1| 1994                   |
+| Luxembourg      |    1| 1970                   |
+| Monaco          |    1| 1966                   |
+| Sweden          |    1| 1963                   |
+| United Kingdom  |    1| 2003                   |
+| Yugoslavia      |    1| 1964                   |
 
 How often does Greece receive 12 points from Cyprus in the final?
 

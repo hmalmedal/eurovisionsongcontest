@@ -23,18 +23,22 @@ Install from GitHub:
 devtools::install_github("hmalmedal/eurovisionsongcontest")
 ```
 
-Which participants have received zero points in the final?
+Which participants have received zero points in the final the most times?
 
 ```{r, message=FALSE}
 library(eurovisionsongcontest)
 library(dplyr)
 library(tidyr)
 library(stringr)
+library(lubridate)
 eurovisionsongcontest %>%
   spread(key, value) %>%
-  select(Participant, Event, Points) %>%
+  select(Participant, Event, Date, Points) %>%
+  mutate(Year = year(Date)) %>%
   filter(Points == 0, !str_detect(Event, "Semi")) %>%
-  arrange(Event) %>%
+  group_by(Participant) %>%
+  summarise(n = n(), `Year(s)` = list(Year)) %>%
+  arrange(desc(n)) %>%
   knitr::kable()
 ```
 

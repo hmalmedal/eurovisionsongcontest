@@ -2,11 +2,19 @@
 Scoreboards of the Eurovision Song Contest
 ==========================================
 
+Scoreboards of the Eurovision Song Contest scraped from the official website.
+
+Installation
+------------
+
 Install from GitHub:
 
 ``` r
 devtools::install_github("hmalmedal/eurovisionsongcontest")
 ```
+
+Usage
+-----
 
 Which participants have received zero points in the final the most times?
 

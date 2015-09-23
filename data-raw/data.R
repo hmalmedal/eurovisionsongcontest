@@ -1,7 +1,7 @@
 scrape <- function(event_url, sleep = 0) {
   Sys.sleep(sleep)
 
-  event_html <- rvest::html(event_url)
+  event_html <- xml2::read_html(event_url)
   event_title <- rvest::html_node(event_html, "title") %>%
     rvest::html_text() %>%
     stringr::str_extract("^.+?(?= \\|)")
